@@ -15,4 +15,11 @@
   <h4 text-center *ngIf="selectedItem">
     You navigated here from <b>{{selectedItem.title}}</b>
   </h4>
+  <form >
+    <label>显示dialog</label>
+    <input type="text" #message>
+    <button class="button_aa" (click)="showDialog(message.value)">提交</button>
+  </form>
 </ion-content>
+
+

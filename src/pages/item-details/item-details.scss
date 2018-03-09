@@ -1,3 +1,10 @@
 page-item-details {
-
+  $width: 80px;
+  $buttonColor: #fff;
+  .button_aa {
+    width: $width;
+    color: $buttonColor;
+    background: #6cf;
+    height: 40px;
+  }
 }

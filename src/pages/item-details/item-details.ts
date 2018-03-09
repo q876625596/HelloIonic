@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
-import { NavController, NavParams } from 'ionic-angular';
+import {AlertController, NavController, NavParams} from 'ionic-angular';
+import {LoginPage} from "../login/login";
 
 
 @Component({
@@ -10,8 +11,19 @@ import { NavController, NavParams } from 'ionic-angular';
 export class ItemDetailsPage {
   selectedItem: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public alertController: AlertController, public navCtrl: NavController, public navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
+  }
+
+  showDialog(message: string) {
+    /*let alert = this.alertController.create({
+      title: "dialog",
+      message: message,
+      buttons: ["OK"]
+    });
+    alert.present();*/
+    this.navCtrl.setPages([{page:LoginPage}], {animate:true})
+
   }
 }

@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, ErrorHandler} from '@angular/core';
-import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
+import {IonicApp, IonicModule, IonicErrorHandler, AlertController} from 'ionic-angular';
 import {MyApp} from './app.component';
 
 import {HelloIonicPage} from '../pages/hello-ionic/hello-ionic';
@@ -10,6 +10,8 @@ import {ListPage} from '../pages/list/list';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {CommonModule} from "@angular/common";
+import {FormsModule} from "@angular/forms";
+import {LoginPage} from "../pages/login/login";
 
 @NgModule({
   //模块内部Components/Directives/Pipes的列表，声明一下这个模块内部成员
@@ -18,7 +20,8 @@ import {CommonModule} from "@angular/common";
     MyApp,
     HelloIonicPage,
     ItemDetailsPage,
-    ListPage
+    ListPage,
+    LoginPage
   ],
   // 导入其他module，
   // 其它module暴露的出的Components、Directives、Pipes等可以在本module的组件中被使用。
@@ -26,6 +29,7 @@ import {CommonModule} from "@angular/common";
   imports: [
     CommonModule,
     BrowserModule,
+    FormsModule,
     IonicModule.forRoot(MyApp),
   ],
   //用来控制将哪些内部成员暴露给外部使用。
@@ -46,13 +50,15 @@ import {CommonModule} from "@angular/common";
     MyApp,
     HelloIonicPage,
     ItemDetailsPage,
-    ListPage
+    ListPage,
+    LoginPage
   ],
   // 模块内部成员能够访问使用的Service；
   // 内部和外部Service都可以放在这里声明，
   // 因为Service的权限控制依赖于ng的DI而不是module。
   // ng会把这些providers注册到module运行上下文的根级injector
   providers: [
+    AlertController,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
