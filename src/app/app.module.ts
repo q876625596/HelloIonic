@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule, ErrorHandler} from '@angular/core';
-import {IonicApp, IonicModule, IonicErrorHandler, AlertController} from 'ionic-angular';
+import {ErrorHandler, NgModule} from '@angular/core';
+import {AlertController, IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import {MyApp} from './app.component';
 
 import {HelloIonicPage} from '../pages/hello-ionic/hello-ionic';
@@ -12,6 +12,8 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {LoginPage} from "../pages/login/login";
+import {NoopAnimationsModule} from "@angular/platform-browser/animations";
+import {MyMaterialModule} from "./material.module";
 
 @NgModule({
   //模块内部Components/Directives/Pipes的列表，声明一下这个模块内部成员
@@ -31,6 +33,8 @@ import {LoginPage} from "../pages/login/login";
     BrowserModule,
     FormsModule,
     IonicModule.forRoot(MyApp),
+    NoopAnimationsModule,
+    MyMaterialModule,
   ],
   //用来控制将哪些内部成员暴露给外部使用。
   exports:[],
@@ -53,6 +57,7 @@ import {LoginPage} from "../pages/login/login";
     ListPage,
     LoginPage
   ],
+  //全局依赖注入
   // 模块内部成员能够访问使用的Service；
   // 内部和外部Service都可以放在这里声明，
   // 因为Service的权限控制依赖于ng的DI而不是module。

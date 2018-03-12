@@ -70,7 +70,9 @@ $colors: (
 // so that the above variables are used and Ionic's
 // default are overridden.
 
+//全局css可以在这里设置
 @import "ionic.theme.default";
+@import "../../node_modules/@angular/material/prebuilt-themes/indigo-pink";
 
 
 // Ionicons
