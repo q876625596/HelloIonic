@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {ErrorHandler, NgModule} from '@angular/core';
-import {AlertController, IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
+import {AlertController, IonicApp, IonicErrorHandler, IonicModule, ToastController} from 'ionic-angular';
 import {MyApp} from './app.component';
 
 import {HelloIonicPage} from '../pages/hello-ionic/hello-ionic';
@@ -14,6 +14,7 @@ import {FormsModule} from "@angular/forms";
 import {LoginPage} from "../pages/login/login";
 import {NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {MyMaterialModule} from "./material.module";
+import {HomePage} from "../pages/home/home";
 
 @NgModule({
   //模块内部Components/Directives/Pipes的列表，声明一下这个模块内部成员
@@ -23,7 +24,8 @@ import {MyMaterialModule} from "./material.module";
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    LoginPage
+    LoginPage,
+    HomePage
   ],
   // 导入其他module，
   // 其它module暴露的出的Components、Directives、Pipes等可以在本module的组件中被使用。
@@ -55,7 +57,8 @@ import {MyMaterialModule} from "./material.module";
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    LoginPage
+    LoginPage,
+    HomePage
   ],
   //全局依赖注入
   // 模块内部成员能够访问使用的Service；
@@ -63,6 +66,7 @@ import {MyMaterialModule} from "./material.module";
   // 因为Service的权限控制依赖于ng的DI而不是module。
   // ng会把这些providers注册到module运行上下文的根级injector
   providers: [
+    ToastController,
     AlertController,
     StatusBar,
     SplashScreen,

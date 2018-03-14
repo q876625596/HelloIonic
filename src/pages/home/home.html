@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <button *ngFor="let item of myList" style="background: white">
+      <div class="div_1">
+        <img class="avatar" [width]="40" [height]="40" align="left" src={{item.avatar}}>
+        <p class="userName">
+          {{item.userName}}</p>
+      </div>
+      <img class="content-image" src={{item.contentImage}}>
+      <div style="width: 100% ;height: 35px ">
+        <div style="float: left;">
+          <ion-icon class="icon" name="ios-heart-outline"></ion-icon>
+          <ion-icon class="icon" name="ios-chatbubbles-outline"></ion-icon>
+          <ion-icon class="icon" name="ios-paper-plane-outline"></ion-icon>
+
+        </div>
+        <div style=" float: right;text-align: right;">
+          <ion-icon class="icon" name="ios-bookmark-outline"></ion-icon>
+        </div>
+      </div>
+      <div>
+        <p class="content">{{item.content}}</p>
+      </div>
+    </button>
+  </ion-list>
+</ion-content>

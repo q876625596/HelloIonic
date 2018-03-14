@@ -1,23 +1,47 @@
 <!--<link href="/node_modules/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet">-->
-<ion-content>
-  <p align="center" style="font-size: 0.6rem">WELCOME TO</p>
+<ion-content align="center">
 
-  <p align="center" style="font-size: 1.5rem">VERVE</p>
+  <ion-icon (click) = "back()" name="ios-close" style="width: 100%;font-size:4rem;margin-left:1rem;text-align: left"></ion-icon>
 
-  <p align="center" style="font-size: 0.6rem">Find inspiration and share <br/> great photos</p>
-
+  <div class="login-title-div">
+    <p class="login-title-p1">
+      <br>
+      <span class="login-title-span1">WELCOME TO</span>
+      <br>
+      <span class="login-title-span2">VERVE</span>
+      <br>
+      <span class="login-title-p2">Find inspiration and share
+      <br>
+      great photos</span>
+    </p>
+    <!-- <p class="login-title-p2">
+       Find inspiration and share
+       <br>
+       great photos
+     </p>-->
+  </div>
 
   <form class="example-form">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Favorite food">
+      <input matInput placeholder="Email"
+             [formControl]="emailFormControl"
+             [errorStateMatcher]="matcher"
+             [(ngModel)]="email" name="email">
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Leave a comment">
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Leave a comment"></textarea>
+      <input matInput placeholder="Password" [(ngModel)]="passWord" name="password">
     </mat-form-field>
   </form>
-
+  <button ion-button
+          (click)="check()" class="login-button" color="dark">Dark
+  </button>
+  <br>
+  <button mat-button class="register-button">Sign Up</button>
 </ion-content>

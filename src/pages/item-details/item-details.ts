@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 
 import {AlertController, NavController, NavParams} from 'ionic-angular';
-import {LoginPage} from "../login/login";
 
 
 @Component({
@@ -17,13 +16,11 @@ export class ItemDetailsPage {
   }
 
   showDialog(message: string) {
-    /*let alert = this.alertController.create({
+    let alert = this.alertController.create({
       title: "dialog",
       message: message,
       buttons: ["OK"]
     });
-    alert.present();*/
-    this.navCtrl.setPages([{page:LoginPage}], {animate:true})
-
+    alert.present();
   }
 }

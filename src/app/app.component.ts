@@ -7,6 +7,8 @@ import {ListPage} from '../pages/list/list';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
+import {LoginPage} from "../pages/login/login";
+import {HomePage} from "../pages/home/home";
 
 
 @Component({
@@ -17,7 +19,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage = HelloIonicPage;
+  rootPage = HomePage;
   pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform,
@@ -27,6 +29,7 @@ export class MyApp {
     this.initializeApp();
     // set our app's pages
     this.pages = [
+      {title: 'Home', component: HomePage},
       {title: 'Hello Ionic', component: HelloIonicPage},
       {title: 'My First List', component: ListPage}
     ];
@@ -36,9 +39,10 @@ export class MyApp {
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
+      //this.statusBar.backgroundColorByName('white');
+      this.statusBar.styleDefault();
       // Here you can do any higher level native things you might need.
       this.splashScreen.hide();
-      this.statusBar.backgroundColorByName('white');
 
     });
   }
@@ -48,5 +52,9 @@ export class MyApp {
     this.menu.close();
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
+  }
+  openLogin(){
+    this.menu.close();
+    this.nav.push(LoginPage)
   }
 }
