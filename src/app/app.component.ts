@@ -38,9 +38,9 @@ export class MyApp {
   //初始化
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      //this.statusBar.backgroundColorByName('white');
       this.statusBar.styleDefault();
+      // Okay, so the platform is ready and our plugins are available.
+      this.statusBar.backgroundColorByName('white');
       // Here you can do any higher level native things you might need.
       this.splashScreen.hide();
 

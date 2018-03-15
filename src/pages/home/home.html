@@ -10,27 +10,58 @@
 
 <ion-content>
   <ion-list>
-    <button *ngFor="let item of myList" style="background: white">
-      <div class="div_1">
-        <img class="avatar" [width]="40" [height]="40" align="left" src={{item.avatar}}>
-        <p class="userName">
+    <button *ngFor="let item of myList" class="button-item">
+
+      <div class="div-avatar-userName">
+        <img class="img-avatar" [width]="40" [height]="40" align="left" src={{item.avatar}}>
+        <p class="p-userName">
           {{item.userName}}</p>
       </div>
-      <img class="content-image" src={{item.contentImage}}>
-      <div style="width: 100% ;height: 35px ">
-        <div style="float: left;">
-          <ion-icon class="icon" name="ios-heart-outline"></ion-icon>
+
+      <img class="img-content" src={{item.contentImage}}>
+
+      <div class="div-icon-1">
+        <div class="div-icon-2">
+          <ion-col>
+            <ion-icon (click)="liked(item)" class="icon" color="{{item.like?'danger':''}}"
+                      name="{{item.like?'ios-heart':'ios-heart-outline'}}"></ion-icon>
+          </ion-col>
           <ion-icon class="icon" name="ios-chatbubbles-outline"></ion-icon>
           <ion-icon class="icon" name="ios-paper-plane-outline"></ion-icon>
 
         </div>
         <div style=" float: right;text-align: right;">
-          <ion-icon class="icon" name="ios-bookmark-outline"></ion-icon>
+          <ion-col>
+            <ion-icon (click)="doCollection(item)" class="icon"
+                      name="{{item.collection?'ios-bookmark':'ios-bookmark-outline'}}"></ion-icon>
+          </ion-col>
         </div>
       </div>
-      <div>
-        <p class="content">{{item.content}}</p>
+
+      <div align="left">
+        <p class="p-up">{{item.up}}次赞</p>
       </div>
+
+      <div>
+        <p class="p-content">{{item.content}}</p>
+      </div>
+
+      <div align="left">
+        <p class="p-totalComment">共{{item.commentCount}}条评论</p>
+      </div>
+      <ion-list class="list-comment" *ngFor="let comment of item.comments">
+        <p align="left" class="p-comment">
+          <span class="span-fromUser">{{comment.fromUser}} </span>
+          <span class="span-toUser">@{{comment.toUser}} </span>
+          {{comment.commentContent}}
+        </p>
+      </ion-list>
+      <form class="form-comment">
+        <mat-form-field class="form-field-comment">
+          <input matInput placeholder="Edit Comment...">
+        </mat-form-field>
+      </form>
+      <p align="left" class="p-date">{{item.date}}</p>
     </button>
   </ion-list>
 </ion-content>

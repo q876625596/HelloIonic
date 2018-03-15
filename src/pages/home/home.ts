@@ -10,7 +10,16 @@ import {HomeList} from "./HomeList";
 export class HomePage {
 
   myList = HomeList.myList;
+
   constructor(public alertController: AlertController, public statusBar: StatusBar, public menu: MenuController, public navCtrl: NavController, public navParams: NavParams) {
 
+  }
+
+  liked(item) {
+    item.like = !item.like;
+  }
+
+  doCollection(item) {
+    item.collection = !item.collection
   }
 }
