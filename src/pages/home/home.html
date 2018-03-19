@@ -9,8 +9,41 @@
 
 
 <ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
   <ion-list>
-    <button *ngFor="let item of myList" class="button-item">
+    <ion-item>
+      <div>Registration Id: {{registrationId}}</div>
+      <button ion-button full (click)="getRegistrationID()">Get Registration Id</button>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button full (click)="setTags()">Set tags - Tag1, Tag2</button>
+      <button ion-button full (click)="addTags()">Add tags - Tag3, Tag4</button>
+      <button ion-button full (click)="checkTagBindState()">Check tag bind state - Tag1</button>
+      <button ion-button full (click)="deleteTags()">Delete tags - Tag4</button>
+      <button ion-button full (click)="getAllTags()">Get all tags</button>
+      <button ion-button full (click)="cleanTags()">Clean tags</button>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button full (click)="setAlias()">Set Alias - TestAlias</button>
+      <button ion-button full (click)="getAlias()">Get Alias</button>
+      <button ion-button full (click)="deleteAlias()">Delete Alias</button>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button full (click)="addLocalNotification()">Trigger local notification after 5 seconds</button>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngFor="let item of myList">
+    <button class="button-item">
 
       <div class="div-avatar-userName">
         <img class="img-avatar" [width]="40" [height]="40" align="left" src={{item.avatar}}>
@@ -64,4 +97,7 @@
       <p align="left" class="p-date">{{item.date}}</p>
     </button>
   </ion-list>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

@@ -82,5 +82,8 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-statusbar" spec="^2.4.1" />
+    <plugin name="jpush-phonegap-plugin" spec="^3.4.1">
+        <variable name="APP_KEY" value="4fb748a001d8c17e52436a83" />
+    </plugin>
     <engine name="android" spec="^7.0.0" />
 </widget>

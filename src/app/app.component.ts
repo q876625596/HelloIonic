@@ -9,6 +9,7 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {LoginPage} from "../pages/login/login";
 import {HomePage} from "../pages/home/home";
+import {JPush} from "@jiguang-ionic/jpush";
 
 
 @Component({
@@ -25,7 +26,8 @@ export class MyApp {
   constructor(public platform: Platform,
               public menu: MenuController,
               public statusBar: StatusBar,
-              public splashScreen: SplashScreen,) {
+              public splashScreen: SplashScreen,
+              public jPush: JPush) {
     this.initializeApp();
     // set our app's pages
     this.pages = [
@@ -43,6 +45,8 @@ export class MyApp {
       this.statusBar.backgroundColorByName('white');
       // Here you can do any higher level native things you might need.
       this.splashScreen.hide();
+      this.jPush.init()
+      this.jPush.setDebugMode(true)
 
     });
   }
@@ -53,7 +57,8 @@ export class MyApp {
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
   }
-  openLogin(){
+
+  openLogin() {
     this.menu.close();
     this.nav.push(LoginPage)
   }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {AlertController, MenuController, NavController, NavParams, Toast, ToastController} from "ionic-angular";
+import {AlertController, MenuController, NavController, NavParams, ToastController} from "ionic-angular";
 import {StatusBar} from "@ionic-native/status-bar";
 import {ErrorStateMatcher} from "@angular/material";
 import {FormControl, FormGroupDirective, NgForm, Validators} from "@angular/forms";
@@ -25,18 +25,19 @@ export class LoginPage implements OnInit {
 
   public email = "";
   public passWord = "";
-  public toast: Toast;
   public emailFormControl: FormControl;
   public matcher: MyErrorStateMatcher;
 
-  constructor(public toastController: ToastController, public alertController: AlertController, public statusBar: StatusBar, public menu: MenuController, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public toastController: ToastController,
+              public alertController: AlertController,
+              public statusBar: StatusBar,
+              public menu: MenuController,
+              public navCtrl: NavController,
+              public navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
     menu.swipeEnable(false);
     this.statusBar.backgroundColorByHexString('#66ccff');
     //toast
-    this.toast = this.toastController.create({
-      duration: 3000
-    });
     //创建表单控制器并传入需要验证的规则
     this.emailFormControl = new FormControl('', [
       Validators.required,
@@ -51,8 +52,11 @@ export class LoginPage implements OnInit {
       return
     }
     if (this.passWord == "") {
-      this.toast.setMessage("Password is null!");
-      this.toast.present();
+      let toast = this.toastController.create({
+        duration: 3000
+      });
+      toast.setMessage("Password is null!");
+      toast.present();
     }
   }
 

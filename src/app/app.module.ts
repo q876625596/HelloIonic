@@ -15,6 +15,7 @@ import {LoginPage} from "../pages/login/login";
 import {NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {MyMaterialModule} from "./material.module";
 import {HomePage} from "../pages/home/home";
+import {JPush} from "@jiguang-ionic/jpush";
 
 @NgModule({
   //模块内部Components/Directives/Pipes的列表，声明一下这个模块内部成员
@@ -70,6 +71,7 @@ import {HomePage} from "../pages/home/home";
     AlertController,
     StatusBar,
     SplashScreen,
+    JPush,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
