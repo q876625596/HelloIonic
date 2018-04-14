@@ -3,6 +3,7 @@ import {AlertController, MenuController, NavController, NavParams, ToastControll
 import {StatusBar} from "@ionic-native/status-bar";
 import {ErrorStateMatcher} from "@angular/material";
 import {FormControl, FormGroupDirective, NgForm, Validators} from "@angular/forms";
+import {HeroesPage} from "../heroes/heroes";
 
 
 //定义表单控件如何提示错误
@@ -65,4 +66,7 @@ export class LoginPage implements OnInit {
     this.navCtrl.pop()
   }
 
+  toHeros(){
+    this.navCtrl.push(HeroesPage)
+  }
 }

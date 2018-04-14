@@ -18,6 +18,7 @@ import {HomePage} from "../pages/home/home";
 import {JPush} from "@jiguang-ionic/jpush";
 
 @NgModule({
+
   //模块内部Components/Directives/Pipes的列表，声明一下这个模块内部成员
   //类似android中manifest文件中声明activity
   declarations: [
@@ -28,6 +29,7 @@ import {JPush} from "@jiguang-ionic/jpush";
     LoginPage,
     HomePage
   ],
+
   // 导入其他module，
   // 其它module暴露的出的Components、Directives、Pipes等可以在本module的组件中被使用。
   // 比如导入CommonModule后就可以使用NgIf、NgFor等指令。
@@ -37,15 +39,18 @@ import {JPush} from "@jiguang-ionic/jpush";
     FormsModule,
     IonicModule.forRoot(MyApp),
     NoopAnimationsModule,
-    MyMaterialModule,
+    MyMaterialModule
   ],
+
   //用来控制将哪些内部成员暴露给外部使用。
   exports:[],
+
   // 通常是app启动的根组件，
   // 一般只有一个component。
   // bootstrap中的组件会自动被放入到entryComponents中。
   bootstrap: [IonicApp],
-  // 不会再模板中被引用到的组件。
+
+  // 不会在模板中被引用到的组件。
   // 这个属性一般情况下只有ng自己使用，
   // 一般是bootstrap组件或者路由组件，
   // ng会自动把bootstrap、路由组件放入其中。

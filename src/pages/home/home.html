@@ -59,9 +59,14 @@
             <ion-icon (click)="liked(item)" class="icon" color="{{item.like?'danger':''}}"
                       name="{{item.like?'ios-heart':'ios-heart-outline'}}"></ion-icon>
           </ion-col>
-          <ion-icon class="icon" name="ios-chatbubbles-outline"></ion-icon>
-          <ion-icon class="icon" name="ios-paper-plane-outline"></ion-icon>
+        </div>
 
+        <div class="div-icon-2">
+          <ion-icon class="icon" name="ios-chatbubbles-outline"></ion-icon>
+        </div>
+
+        <div class="div-icon-2">
+          <ion-icon class="icon" name="ios-paper-plane-outline"></ion-icon>
         </div>
         <div style=" float: right;text-align: right;">
           <ion-col>
@@ -94,7 +99,7 @@
           <input matInput placeholder="Edit Comment...">
         </mat-form-field>
       </form>
-      <p align="left" class="p-date">{{item.date}}</p>
+      <p align="left" class="p-date">{{item.date|date:'yyyy-MM-dd HH:mm'}}</p>
     </button>
   </ion-list>
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
